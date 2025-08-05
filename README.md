@@ -1,1 +1,33 @@
 # Zero-Day-Ransomware-PwnCrypt-Outbreak
+Scenario
+A new ransomware strain named PwnCrypt has been reported in the news, leveraging a PowerShell-based payload to encrypt files on infected systems. The payload, using AES-256 encryption, targets specific directories such as the C:\Users\Public\Desktop, encrypting files and prepending a .pwncrypt extension to the original extension. For example, hello.txt becomes hello.pwncrypt.txt after being targeted with the ransomware. The CISO is concerned with the new ransomware strain being spread to the corporate network and wishes to investigate.
+
+Data Collection
+Inspect DeviceFileEvents logs in MS Defender for .pwncrpyt string
+
+let suspectDevice = "windows10vm";
+DeviceFileEvents
+| where DeviceName == suspectDevice
+| where FileName contains "pwncrypt"
+| order by Timestamp desc
+| summarize by Timestamp, DeviceName, ActionType, FileName, FolderPath, InitiatingProcessFileName, InitiatingProcessCommandLine
+
+<img width="1621" height="663" alt="スクリーンショット 2025-08-05 11 04 54" src="https://github.com/user-attachments/assets/367446b4-c874-470f-8551-f09ae8f0df43" />
+
+Findings
+- Files appended with .pwncrypt indicate the ransomeware has spread to our systems
+- Initiating process confirms PowerShell-based script at C:\programdata\pwnscript.ps1 using -ExecutionPolicy Bypass
+
+Inspect DeviceNetworkEvents for any "Invoke-WebRequest" 
+
+let suspectDevice = "windows10vm";
+DeviceNetworkEvents
+| where DeviceName == suspectDevice and InitiatingProcessCommandLine contains "Invoke-WebRequest"
+| summarize by Timestamp, DeviceName, RemoteUrl, InitiatingProcessFileName, InitiatingProcessCommandLine
+
+<img width="1651" height="521" alt="image" src="https://github.com/user-attachments/assets/06e49924-f2ec-4816-b298-04dc301d8a20" />
+
+Findings
+- Confirmed ommand line to callout to github and save file pwncrypt.ps1 to C:\programdata
+
+
