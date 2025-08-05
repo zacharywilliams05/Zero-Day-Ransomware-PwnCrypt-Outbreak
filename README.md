@@ -46,11 +46,17 @@ Investigation
 
 Remediation
 
-- Isolate endpoints with pwncrypt.ps1 file and eradicate.
-- Kill any additional processing spawned.
+Containment
 - Block traffic to/from assoicated URL
-- 
 
+Eradication
+- Isolate endpoints with pwncrypt.ps1 file and eradicate
+- Terminate additional processes (schedule tasks, etc.)
+- Scan network for other signs of infection
+
+Recovery
+- Restore endpoints from last known good backup
+- Verify integridy of restored systems
 
 
 
