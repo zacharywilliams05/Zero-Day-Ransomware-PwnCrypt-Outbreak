@@ -20,7 +20,7 @@ DeviceFileEvents
 <img width="1621" height="663" alt="スクリーンショット 2025-08-05 11 04 54" src="https://github.com/user-attachments/assets/367446b4-c874-470f-8551-f09ae8f0df43" />
 
 🔍 Findings
-- Files appended with .pwncrypt indicate the ransomeware has spread to our systems
+- Files appended with .pwncrypt indicate the ransomware has spread to our systems
 - Initiating process confirms PowerShell-based script at C:\programdata\pwnscript.ps1 using -ExecutionPolicy Bypass
 
 📊 Inspect DeviceNetworkEvents for any "Invoke-WebRequest" 
