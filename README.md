@@ -49,6 +49,17 @@ DeviceNetworkEvents
 
 - Analysis of the pwncrypt.ps1 file indicates code associated with ransom ware.
 
+## MITRE ATT&CK TTPs for PwnCrypt Ransomware
+
+| Tactic                | Technique                                      | Description                                                                 |
+|----------------------|-----------------------------------------------|-----------------------------------------------------------------------------|
+| **Execution**        | **T1059.001 - Command and Scripting Interpreter** | PowerShell-based execution of the ransomware.                             |
+| **Persistence**      | **T1053.005 - Scheduled Task/Job**                | Potential creation of scheduled tasks for persistence.                    |
+| **Defense Evasion**  | **T1203 - Exploitation for Client Execution**     | Use of `-ExecutionPolicy Bypass` to evade defenses.                      |
+| **Impact**           | **T1486 - Data Encrypted for Impact**             | Encrypting files and demanding ransom.                                    |
+| **Command and Control** | **T1071.001 - Application Layer Protocol**        | Communication with a remote URL for command and control.                 |
+
+
 ## 🛠️ Remediation
 
 🛑 Containment
