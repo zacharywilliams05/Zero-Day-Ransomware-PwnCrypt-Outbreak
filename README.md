@@ -49,7 +49,7 @@ DeviceNetworkEvents
 
 - Analysis of the pwncrypt.ps1 file indicates code associated with ransom ware.
 
-## MITRE ATT&CK TTPs for PwnCrypt Ransomware
+## 📂 MITRE ATT&CK TTPs for PwnCrypt Ransomware
 
 | Tactic                | Technique                                      | Description                                                                 |
 |----------------------|-----------------------------------------------|-----------------------------------------------------------------------------|
