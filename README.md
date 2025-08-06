@@ -25,10 +25,12 @@ Findings
 
 Inspect DeviceNetworkEvents for any "Invoke-WebRequest" 
 
+```kql
 let suspectDevice = "windows10vm";
 DeviceNetworkEvents
 | where DeviceName == suspectDevice and InitiatingProcessCommandLine contains "Invoke-WebRequest"
 | summarize by Timestamp, DeviceName, RemoteUrl, InitiatingProcessFileName, InitiatingProcessCommandLine
+```
 
 <img width="1651" height="521" alt="image" src="https://github.com/user-attachments/assets/06e49924-f2ec-4816-b298-04dc301d8a20" />
 
