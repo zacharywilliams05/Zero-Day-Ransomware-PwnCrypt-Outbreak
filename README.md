@@ -2,7 +2,8 @@
 
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/84b28057-5767-4402-adaa-68f7214615ca" />
 
-Scenario
+##Scenario
+
 A new ransomware strain called PwnCrypt has emerged, using a PowerShell-based payload to encrypt files with AES-256 encryption and adding a .pwncrypt extension to targeted files. The CISO is worried about its potential spread to the corporate network and intends to investigate further.
 
 Data Collection
